@@ -47,10 +47,13 @@ namespace WinFormsAppR
 
         public void Close()
         {
-            if (_connection.State == System.Data.ConnectionState.Open)
+            if (_connection != null)
             {
-                _connection.Close();
-            }    
+                if (_connection.State == System.Data.ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
         }
 
         public SqlConnection GetConnection()
@@ -68,10 +71,12 @@ namespace WinFormsAppR
             }
         }
 
+//      Получаем имя сервера и имя бд из файла
         public List<string> GetConnectionInfo()
         {
             List<string> lst = new List<string>();
-            try
+
+            if (File.Exists("ConnectionInfo.txt"))
             {
                 using (StreamReader sr = new StreamReader("ConnectionInfo.txt"))
                 {
@@ -82,10 +87,7 @@ namespace WinFormsAppR
                     }
                 }
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+
             return lst;
         }
     

@@ -122,17 +122,6 @@ namespace WinFormsAppR
                 // если ошибка, откатываем назад все изменения
                 transaction.Rollback();
             }
-
-
-        }
-
-        public void DeleteRows()
-        {
-            string queryString = "DELETE dbo.Table_1 WHERE flag = 0";
-            SqlCommand command = new SqlCommand(queryString, _connection);
-
-            command.ExecuteNonQuery();
-
         }
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)

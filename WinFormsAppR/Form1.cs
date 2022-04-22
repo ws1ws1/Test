@@ -59,17 +59,6 @@ namespace WinFormsAppR
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            dbOperation.DeleteRows();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(textBoxDataSource.Text) && !string.IsNullOrEmpty(textBoxInitialCatalog.Text))
@@ -81,8 +70,6 @@ namespace WinFormsAppR
             }
             
         }
-
-
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
